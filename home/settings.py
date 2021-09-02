@@ -63,7 +63,7 @@ ROOT_URLCONF = "home.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        # 'DIRS': [],
+        # "DIRS": [],
         "DIRS": [
             BASE_DIR / "templates",
         ],
