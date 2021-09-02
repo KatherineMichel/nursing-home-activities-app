@@ -4,9 +4,10 @@ from django.views.generic.base import TemplateView
 from rest_framework import viewsets
 from django_filters import rest_framework as filters
 
-from activities.models import Activity
+from activities.models import Activity, Resident
 from activities.serializers import (
     ActivitySerializer,
+    ResidentSerializer,
     UserSerializer,
 )
 
@@ -33,6 +34,11 @@ class ActivityViewSet(viewsets.ModelViewSet):
     serializer_class = ActivitySerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = ActivityFilter
+
+
+class ResidentViewSet(viewsets.ModelViewSet):
+    queryset = Resident.objects.all()
+    serializer_class = ResidentSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
