@@ -34,7 +34,7 @@ class Activity(models.Model):
     )
     options = models.CharField(choices=ACTIVITY_OPTIONS, default="both", max_length=100)
     residents = models.ManyToManyField(
-        "Resident", blank=True, null=True, related_name="activities"
+        "Resident", blank=True, related_name="activities"
     )
 
 
