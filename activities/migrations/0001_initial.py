@@ -15,29 +15,103 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Activity',
+            name="Activity",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(default='', max_length=100)),
-                ('description', models.CharField(blank=True, default='', max_length=255, null=True)),
-                ('start', models.DateTimeField()),
-                ('end', models.DateTimeField()),
-                ('location', models.CharField(choices=[('activity room', 'activity room'), ('skilled nursing', 'skilled nursing'), ('assisted living', 'assisted living'), ('memory care', 'memory care'), ('dining room', 'dining room'), ('outing', 'outing')], default='dining room', max_length=100)),
-                ('options', models.CharField(choices=[('virtual', 'virtual'), ('in person', 'in person'), ('both', 'both')], default='both', max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(default="", max_length=100)),
+                (
+                    "description",
+                    models.CharField(blank=True, default="", max_length=255, null=True),
+                ),
+                ("start", models.DateTimeField()),
+                ("end", models.DateTimeField()),
+                (
+                    "location",
+                    models.CharField(
+                        choices=[
+                            ("activity room", "activity room"),
+                            ("skilled nursing", "skilled nursing"),
+                            ("assisted living", "assisted living"),
+                            ("memory care", "memory care"),
+                            ("dining room", "dining room"),
+                            ("outing", "outing"),
+                        ],
+                        default="dining room",
+                        max_length=100,
+                    ),
+                ),
+                (
+                    "options",
+                    models.CharField(
+                        choices=[
+                            ("virtual", "virtual"),
+                            ("in person", "in person"),
+                            ("both", "both"),
+                        ],
+                        default="both",
+                        max_length=100,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Resident',
+            name="Resident",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('status', models.CharField(choices=[('going', 'going'), ('not going', 'not going'), ('maybe', 'maybe')], default='not going', max_length=100)),
-                ('activity', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='activity', to='activities.activity')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("going", "going"),
+                            ("not going", "not going"),
+                            ("maybe", "maybe"),
+                        ],
+                        default="not going",
+                        max_length=100,
+                    ),
+                ),
+                (
+                    "activity",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="activity",
+                        to="activities.activity",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="user",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='activity',
-            name='residents',
-            field=models.ManyToManyField(blank=True, null=True, related_name='activities', to='activities.Resident'),
+            model_name="activity",
+            name="residents",
+            field=models.ManyToManyField(
+                blank=True,
+                null=True,
+                related_name="activities",
+                to="activities.Resident",
+            ),
         ),
     ]
