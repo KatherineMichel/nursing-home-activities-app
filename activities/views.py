@@ -58,6 +58,7 @@ class ResidentViewSet(viewsets.ModelViewSet):
         status = self.request.query_params.get("status")
         if activity is not None:
             queryset = queryset.filter(activity=activity, status=status)
+        return queryset
     """
 
 
