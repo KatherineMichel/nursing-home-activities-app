@@ -8,6 +8,7 @@ from activities import views
 from activities.views import IndexView
 
 router = DefaultRouter()
+router.register(r"activities", views.ActivityViewSet)
 router.register(r"users", views.UserViewSet)
 
 urlpatterns = [
