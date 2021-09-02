@@ -8,9 +8,9 @@ from activities.serializers import (
 )
 
 
-class HomePageView(TemplateView):
+class IndexView(TemplateView):
 
-    template_name = "home.html"
+    template_name = "index.html"
 
 
 class UserViewSet(viewsets.ModelViewSet):
