@@ -1,15 +1,11 @@
 from django.contrib.auth.models import User
 from django.views.generic.base import TemplateView
-
-from rest_framework import viewsets
 from django_filters import rest_framework as filters
+from rest_framework import viewsets
 
 from activities.models import Activity, Resident
-from activities.serializers import (
-    ActivitySerializer,
-    ResidentSerializer,
-    UserSerializer,
-)
+from activities.serializers import (ActivitySerializer, ResidentSerializer,
+                                    UserSerializer)
 
 
 class ActivityFilter(filters.FilterSet):

@@ -1,6 +1,5 @@
 from django.test import TestCase
 from model_bakery import baker
-
 from rest_framework import status
 from rest_framework.test import APIRequestFactory, APITestCase
 

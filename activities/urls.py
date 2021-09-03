@@ -1,6 +1,5 @@
 from django.conf.urls import include
 from django.urls import path
-
 from rest_framework.routers import DefaultRouter
 from rest_framework.schemas import get_schema_view
 
